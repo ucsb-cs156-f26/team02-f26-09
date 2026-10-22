@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team02-f26-09
 owner: ucsb-cs156-f26
 repo_name: team02-f26-09
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOC5Taaw","is_bot":false,"login":"8bitdoe","name":"Jerry Yang"},"headRefName":"29-MenuItemReview-backend","number":62,"title":"Copy MenuItemReview backend CRUD API from team01","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/62"},{"author":{"id":"U_kgDOC5Taaw","is_bot":false,"login":"8bitdoe","name":"Jerry Yang"},"headRefName":"20-RecommendationRequest-backend","number":61,"title":"Copy RecommendationRequest backend CRUD API from team01","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/61"}]
