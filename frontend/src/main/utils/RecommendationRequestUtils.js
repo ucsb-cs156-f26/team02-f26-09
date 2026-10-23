@@ -1,8 +1,9 @@
 import { toast } from "react-toastify";
 
-export function onDeleteSuccess(message) {
-  console.log(message);
-  toast(message);
+// The DELETE endpoint responds with { message: "..." }; toast needs the text itself
+export function onDeleteSuccess(response) {
+  console.log(response.message);
+  toast(response.message);
 }
 
 export function cellToAxiosParamsDelete(cell) {
