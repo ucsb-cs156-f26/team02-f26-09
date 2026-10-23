@@ -14,7 +14,7 @@ Deployments:
 | RecommendationRequest     | Jerry        | 8bitdoe       |
 | MenuItemReview            | Amaya        | amayabratcher |
 | HelpRequest               | Aryan        | avash124      |
-| Articles                  | Tom          | td-masters    |
+| Articles                  | Tom          | td-marsters   |
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
