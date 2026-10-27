@@ -6,7 +6,7 @@ const ucsbDiningCommonsMenuItemFixtures = {
     station: "Entree Specials",
   },
 
-  threeDiningCommonsMenuItem: [
+  threeDiningCommonsMenuItems: [
     {
       id: 1,
       diningCommonsCode: "ortega",
@@ -16,7 +16,7 @@ const ucsbDiningCommonsMenuItemFixtures = {
     {
       id: 2,
       diningCommonsCode: "ortega",
-      name: "Baked Bolonese Pasta",
+      name: "Baked Bolognese Pasta",
       station: "Entree Specials",
     },
     {
