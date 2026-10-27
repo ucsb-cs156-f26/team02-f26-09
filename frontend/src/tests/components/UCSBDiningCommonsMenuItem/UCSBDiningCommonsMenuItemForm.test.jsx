@@ -18,7 +18,7 @@ vi.mock("react-router", async () => {
 describe("UCSBDiningCommonsMenuItemForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["name", "diningcommonscode", "station"];
+  const expectedHeaders = ["Name", "Dining Commons Code", "Station"];
   const testId = "UCSBDiningCommonsMenuItemForm";
 
   test("renders correctly with no initialContents", async () => {
@@ -93,9 +93,9 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
     await screen.findByText(/Name is required/);
     expect(
-      screen.getByText(/diningcommonscode is required/),
+      screen.getByText(/Dining Commons Code is required/),
     ).toBeInTheDocument();
-    expect(screen.getByText(/station is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Station is required/)).toBeInTheDocument();
 
     const nameInput = screen.getByTestId(`${testId}-name`);
     fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
