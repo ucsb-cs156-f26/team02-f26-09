@@ -71,7 +71,7 @@ function UCSBDiningCommonsMenuItemForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-            <Form.Group className="mb-3">
+      <Form.Group className="mb-3">
         <Form.Label htmlFor="station">station</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-station"}
