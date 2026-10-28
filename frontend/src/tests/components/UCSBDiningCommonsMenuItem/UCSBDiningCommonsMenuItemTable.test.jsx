@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
-import UCSBDiningCommonsMenuItemTable  from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemTable";
+import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemTable";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
@@ -31,7 +31,10 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDiningCommonsMenuItemTable ucsbDiningCommonsMenuItem={[]} currentUser={currentUser} />
+          <UCSBDiningCommonsMenuItemTable
+            ucsbDiningCommonsMenuItem={[]}
+            currentUser={currentUser}
+          />
         </MemoryRouter>
       </QueryClientProvider>,
     );
@@ -85,7 +88,6 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
     ).toHaveTextContent("Baked Pesto Pasta");
-
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
@@ -149,7 +151,6 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
     ).toHaveTextContent("Baked Pesto Pasta");
-
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
@@ -237,7 +238,7 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     // assert - check that the expected content is rendered
     expect(
       await screen.findByTestId(`${testId}-cell-row-0-col-id`),
-        ).toHaveTextContent("1");
+    ).toHaveTextContent("1");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
     ).toHaveTextContent("Baked Pesto Pasta");
