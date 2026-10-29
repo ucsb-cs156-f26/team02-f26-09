@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team02-f26-09
 owner: ucsb-cs156-f26
 repo_name: team02-f26-09
-pull_requests: [{"author":{"id":"U_kgDOC5a68A","is_bot":false,"login":"amayabratcher","name":"Amaya Bratcher"},"headRefName":"amaya-menuitemreview-edit","number":89,"title":"Amaya menuitemreview edit","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/89"},{"author":{"id":"MDQ6VXNlcjQ0NDcyNTY3","is_bot":false,"login":"bogsaff","name":"Bogdan Safonov"},"headRefName":"bs-create-pages","number":82,"title":"Bs create pages","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/82"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjQ0NDcyNTY3","is_bot":false,"login":"bogsaff","name":"Bogdan Safonov"},"headRefName":"bs-create-pages","number":82,"title":"Bs create pages","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/82"}]
