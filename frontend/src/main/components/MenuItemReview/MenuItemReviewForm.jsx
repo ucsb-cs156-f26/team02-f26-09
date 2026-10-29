@@ -107,7 +107,9 @@ function MenuItemReviewForm({
 
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateReviewed">Date Reviewed (iso format)</Form.Label>
+            <Form.Label htmlFor="dateReviewed">
+              Date Reviewed (iso format)
+            </Form.Label>
             <Form.Control
               data-testid="MenuItemReviewForm-dateReviewed"
               id="dateReviewed"

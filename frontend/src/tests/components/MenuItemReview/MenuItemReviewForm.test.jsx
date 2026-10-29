@@ -26,7 +26,9 @@ describe("MenuItemReviewForm tests", () => {
     expect(screen.getByText("Stars (1 to 5)")).toBeInTheDocument();
     expect(screen.getByText("Date Reviewed (iso format)")).toBeInTheDocument();
     expect(screen.getByText("Comments")).toBeInTheDocument();
-    expect(screen.queryByTestId("MenuItemReviewForm-id")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("MenuItemReviewForm-id"),
+    ).not.toBeInTheDocument();
   });
 
   test("renders correctly when passing in a MenuItemReview", async () => {
@@ -63,11 +65,21 @@ describe("MenuItemReviewForm tests", () => {
     expect(screen.getByText("Date Reviewed is required.")).toBeInTheDocument();
     expect(screen.getByText("Comments is required.")).toBeInTheDocument();
 
-    expect(screen.getByTestId("MenuItemReviewForm-itemId")).toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-reviewerEmail")).toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-stars")).toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-dateReviewed")).toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-comments")).toHaveClass("is-invalid");
+    expect(screen.getByTestId("MenuItemReviewForm-itemId")).toHaveClass(
+      "is-invalid",
+    );
+    expect(screen.getByTestId("MenuItemReviewForm-reviewerEmail")).toHaveClass(
+      "is-invalid",
+    );
+    expect(screen.getByTestId("MenuItemReviewForm-stars")).toHaveClass(
+      "is-invalid",
+    );
+    expect(screen.getByTestId("MenuItemReviewForm-dateReviewed")).toHaveClass(
+      "is-invalid",
+    );
+    expect(screen.getByTestId("MenuItemReviewForm-comments")).toHaveClass(
+      "is-invalid",
+    );
   });
 
   test("Correct error messages on bad input (low values, bad email)", async () => {
@@ -110,6 +122,7 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(screen.getByTestId("MenuItemReviewForm-submit"));
 
     await screen.findByText("Stars must be at most 5.");
+    expect(screen.getByText("Stars must be at most 5.")).toBeInTheDocument();
   });
 
   test("No error messages on good input", async () => {
@@ -143,11 +156,21 @@ describe("MenuItemReviewForm tests", () => {
 
     expect(screen.queryByText(/is required/)).not.toBeInTheDocument();
     expect(screen.queryByText(/must be/)).not.toBeInTheDocument();
-    expect(screen.getByTestId("MenuItemReviewForm-itemId")).not.toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-reviewerEmail")).not.toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-stars")).not.toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-dateReviewed")).not.toHaveClass("is-invalid");
-    expect(screen.getByTestId("MenuItemReviewForm-comments")).not.toHaveClass("is-invalid");
+    expect(screen.getByTestId("MenuItemReviewForm-itemId")).not.toHaveClass(
+      "is-invalid",
+    );
+    expect(
+      screen.getByTestId("MenuItemReviewForm-reviewerEmail"),
+    ).not.toHaveClass("is-invalid");
+    expect(screen.getByTestId("MenuItemReviewForm-stars")).not.toHaveClass(
+      "is-invalid",
+    );
+    expect(
+      screen.getByTestId("MenuItemReviewForm-dateReviewed"),
+    ).not.toHaveClass("is-invalid");
+    expect(screen.getByTestId("MenuItemReviewForm-comments")).not.toHaveClass(
+      "is-invalid",
+    );
   });
 
   test("that navigate(-1) is called when Cancel is clicked", async () => {
