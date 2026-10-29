@@ -6,10 +6,22 @@ name: "18-validate-db-schema: Ensure Migration File Matches Entity Files"
 on:
   workflow_dispatch:
   pull_request:
-    paths: [src/**, pom.xml, lombok.config, .github/workflows/18-validate-db-schema.yml]
+    paths:
+      [
+        src/**,
+        pom.xml,
+        lombok.config,
+        .github/workflows/18-validate-db-schema.yml,
+      ]
   push:
-    branches: [ main ]
-    paths: [src/**, pom.xml, lombok.config, .github/workflows/18-validate-db-schema.yml]
+    branches: [main]
+    paths:
+      [
+        src/**,
+        pom.xml,
+        lombok.config,
+        .github/workflows/18-validate-db-schema.yml,
+      ]
 
 jobs:
   call-validate-db-schema:
@@ -17,7 +29,4 @@ jobs:
     with:
       JAVA_DISTRIBUTION: ${{ vars.JAVA_DISTRIBUTION || 'temurin' }}
     secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-
-
-  
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,17 +2,16 @@ name: "02-gh-pages-rebuild: Rebuild gh-pages site"
 
 on:
   workflow_dispatch:
-     inputs:
-        reset:
-            type: boolean
-            description: full reset of site?
- 
+    inputs:
+      reset:
+        type: boolean
+        description: full reset of site?
+
 permissions:
   contents: write
   pages: write
   id-token: write
   pull-requests: read
-
 
 jobs:
   call-workflow-02:
@@ -36,4 +35,3 @@ jobs:
       JAVA_DISTRIBUTION: ${{ vars.JAVA_DISTRIBUTION || 'temurin' }}
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
