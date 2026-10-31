@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team02-f26-09
 owner: ucsb-cs156-f26
 repo_name: team02-f26-09
-pull_requests: [{"author":{"id":"U_kgDOCxQ66g","is_bot":false,"login":"avash124","name":""},"headRefName":"edit_page_for_helprequests","number":98,"title":"Edit page for helprequests","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/98"},{"author":{"id":"U_kgDOCxQ66g","is_bot":false,"login":"avash124","name":""},"headRefName":"index_page_for_help_requests","number":97,"title":"Index page for help requests","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/97"},{"author":{"id":"U_kgDOC6C_nA","is_bot":false,"login":"td-marsters","name":""},"headRefName":"48-create-fixtures-for-articles","number":91,"title":"Created fixtures for Article API","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/91"}]
+pull_requests: [{"author":{"id":"U_kgDOC6C_nA","is_bot":false,"login":"td-marsters","name":""},"headRefName":"48-create-fixtures-for-articles","number":91,"title":"Created fixtures for Article API","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/91"}]
