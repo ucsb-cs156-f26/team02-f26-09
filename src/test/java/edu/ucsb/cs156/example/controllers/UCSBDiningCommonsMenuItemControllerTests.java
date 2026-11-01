@@ -34,12 +34,12 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
 
   @MockitoBean UserRepository userRepository;
 
-  // Authorization tests for /api/UCSBDiningCommonsMenuItem/all
+  // Authorization tests for /api/ucsbdiningcommonsmenuitem/all
 
   @Test
   public void logged_out_users_cannot_get_all() throws Exception {
     mockMvc
-        .perform(get("/api/UCSBDiningCommonsMenuItem/all"))
+        .perform(get("/api/ucsbdiningcommonsmenuitem/all"))
         .andExpect(status().is(403)); // logged out users can't get all
   }
 
@@ -47,24 +47,24 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
   @Test
   public void logged_in_users_can_get_all() throws Exception {
     mockMvc
-        .perform(get("/api/UCSBDiningCommonsMenuItem/all"))
+        .perform(get("/api/ucsbdiningcommonsmenuitem/all"))
         .andExpect(status().is(200)); // logged
   }
 
   @Test
   public void logged_out_users_cannot_get_by_id() throws Exception {
     mockMvc
-        .perform(get("/api/UCSBDiningCommonsMenuItem").param("id", "7"))
+        .perform(get("/api/ucsbdiningcommonsmenuitem").param("id", "7"))
         .andExpect(status().is(403)); // logged out users can't get by id
   }
 
-  // Authorization tests for /api/UCSBDiningCommonsMenuItem/post
+  // Authorization tests for /api/ucsbdiningcommonsmenuitem/post
 
   @Test
   public void logged_out_users_cannot_post() throws Exception {
     mockMvc
         .perform(
-            post("/api/UCSBDiningCommonsMenuItem/post")
+            post("/api/ucsbdiningcommonsmenuitem/post")
                 .param("name", "Baked Pesto Pasta with Chicken")
                 .param("diningCommonsCode", "ortega")
                 .param("station", "Entree Specials")
@@ -77,7 +77,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
   public void logged_in_regular_users_cannot_post() throws Exception {
     mockMvc
         .perform(
-            post("/api/UCSBDiningCommonsMenuItem/post")
+            post("/api/ucsbdiningcommonsmenuitem/post")
                 .param("name", "Baked Pesto Pasta with Chicken")
                 .param("diningCommonsCode", "ortega")
                 .param("station", "Entree Specials")
@@ -85,13 +85,13 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
         .andExpect(status().is(403)); // only admins can post
   }
 
-  // Authorization tests for PUT and DELETE /api/UCSBDiningCommonsMenuItem?id=...
+  // Authorization tests for PUT and DELETE /api/ucsbdiningcommonsmenuitem?id=...
 
   @Test
   public void logged_out_users_cannot_put() throws Exception {
     mockMvc
         .perform(
-            put("/api/UCSBDiningCommonsMenuItem")
+            put("/api/ucsbdiningcommonsmenuitem")
                 .param("id", "67")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("utf-8")
@@ -105,7 +105,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
   public void logged_in_regular_users_cannot_put() throws Exception {
     mockMvc
         .perform(
-            put("/api/UCSBDiningCommonsMenuItem")
+            put("/api/ucsbdiningcommonsmenuitem")
                 .param("id", "67")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("utf-8")
@@ -117,7 +117,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
   @Test
   public void logged_out_users_cannot_delete() throws Exception {
     mockMvc
-        .perform(delete("/api/UCSBDiningCommonsMenuItem").param("id", "15").with(csrf()))
+        .perform(delete("/api/ucsbdiningcommonsmenuitem").param("id", "15").with(csrf()))
         .andExpect(status().is(403));
   }
 
@@ -125,7 +125,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
   @Test
   public void logged_in_regular_users_cannot_delete() throws Exception {
     mockMvc
-        .perform(delete("/api/UCSBDiningCommonsMenuItem").param("id", "15").with(csrf()))
+        .perform(delete("/api/ucsbdiningcommonsmenuitem").param("id", "15").with(csrf()))
         .andExpect(status().is(403)); // only admins can delete
   }
 
@@ -148,7 +148,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     // act
     MvcResult response =
         mockMvc
-            .perform(get("/api/UCSBDiningCommonsMenuItem").param("id", "7"))
+            .perform(get("/api/ucsbdiningcommonsmenuitem").param("id", "7"))
             .andExpect(status().isOk())
             .andReturn();
 
@@ -171,7 +171,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     // act
     MvcResult response =
         mockMvc
-            .perform(get("/api/UCSBDiningCommonsMenuItem").param("id", "7"))
+            .perform(get("/api/ucsbdiningcommonsmenuitem").param("id", "7"))
             .andExpect(status().isNotFound())
             .andReturn();
 
@@ -211,7 +211,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     // act
     MvcResult response =
         mockMvc
-            .perform(get("/api/UCSBDiningCommonsMenuItem/all"))
+            .perform(get("/api/ucsbdiningcommonsmenuitem/all"))
             .andExpect(status().isOk())
             .andReturn();
 
@@ -241,7 +241,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     MvcResult response =
         mockMvc
             .perform(
-                post("/api/UCSBDiningCommonsMenuItem/post")
+                post("/api/ucsbdiningcommonsmenuitem/post")
                     .param("name", "Tofu Banh Mi Sandwich (v)")
                     .param("diningCommonsCode", "ortega")
                     .param("station", "Entree Specials")
@@ -273,7 +273,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     // act
     MvcResult response =
         mockMvc
-            .perform(delete("/api/UCSBDiningCommonsMenuItem").param("id", "15").with(csrf()))
+            .perform(delete("/api/ucsbdiningcommonsmenuitem").param("id", "15").with(csrf()))
             .andExpect(status().isOk())
             .andReturn();
 
@@ -296,7 +296,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     // act
     MvcResult response =
         mockMvc
-            .perform(delete("/api/UCSBDiningCommonsMenuItem").param("id", "15").with(csrf()))
+            .perform(delete("/api/ucsbdiningcommonsmenuitem").param("id", "15").with(csrf()))
             .andExpect(status().isNotFound())
             .andReturn();
 
@@ -336,7 +336,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     MvcResult response =
         mockMvc
             .perform(
-                put("/api/UCSBDiningCommonsMenuItem")
+                put("/api/ucsbdiningcommonsmenuitem")
                     .param("id", "67")
                     .contentType(MediaType.APPLICATION_JSON)
                     .characterEncoding("utf-8")
@@ -373,7 +373,7 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     MvcResult response =
         mockMvc
             .perform(
-                put("/api/UCSBDiningCommonsMenuItem")
+                put("/api/ucsbdiningcommonsmenuitem")
                     .param("id", "67")
                     .contentType(MediaType.APPLICATION_JSON)
                     .characterEncoding("utf-8")
