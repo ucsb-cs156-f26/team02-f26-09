@@ -30,7 +30,7 @@ public class UCSBDiningCommonsMenuItemWebIT extends WebTestCase {
 
     page.getByTestId("UCSBDiningCommonsMenuItemForm-submit").click();
 
-    assertThat(page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-description"))
+    assertThat(page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-name"))
         .hasText("Baked Carbonara Pasta");
 
     page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button").click();
@@ -40,7 +40,7 @@ public class UCSBDiningCommonsMenuItemWebIT extends WebTestCase {
     page.getByTestId("UCSBDiningCommonsMenuItemForm-station").fill("Entree Specials");
     page.getByTestId("UCSBDiningCommonsMenuItemForm-submit").click();
 
-    assertThat(page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-description"))
+    assertThat(page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-name"))
         .hasText("Baked Bolognese Pasta");
 
     page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Delete-button").click();
