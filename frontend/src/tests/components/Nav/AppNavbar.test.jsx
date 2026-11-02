@@ -282,6 +282,51 @@ describe("AppNavbar tests", () => {
     expect(screen.queryByText("MenuItemReview")).not.toBeInTheDocument();
   });
 
+  test("renders the HelpRequest link correctly", async () => {
+    const currentUser = currentUserFixtures.userOnly;
+    const systemInfo = systemInfoFixtures.showingBoth;
+
+    const doLogin = vi.fn();
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <AppNavbar
+            currentUser={currentUser}
+            systemInfo={systemInfo}
+            doLogin={doLogin}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    await screen.findByText("HelpRequest");
+    const link = screen.getByText("HelpRequest");
+    expect(link).toBeInTheDocument();
+    expect(link.getAttribute("href")).toBe("/helprequest");
+  });
+
+  test("HelpRequest link does NOT show when not logged in", async () => {
+    const currentUser = null;
+    const systemInfo = systemInfoFixtures.showingBoth;
+    const doLogin = vi.fn();
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <AppNavbar
+            currentUser={currentUser}
+            systemInfo={systemInfo}
+            doLogin={doLogin}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    await screen.findByText("Log In");
+    expect(screen.queryByText("HelpRequest")).not.toBeInTheDocument();
+  });
+
   test("Restaurant and UCSBDates links do NOT show when not logged in", async () => {
     const currentUser = null;
     const systemInfo = systemInfoFixtures.showingBoth;
