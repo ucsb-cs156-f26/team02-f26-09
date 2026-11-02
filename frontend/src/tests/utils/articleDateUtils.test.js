@@ -13,6 +13,12 @@ describe("articleDateUtils", () => {
         "2026-10-29T05:26:03",
       );
     });
+
+    test("converts a time with an offset to UTC", () => {
+      expect(toDateTimeLocal("2026-10-29T03:30:00-07:00")).toBe(
+        "2026-10-29T10:30:00",
+      );
+    });
   });
 
   describe("toUtcIsoString", () => {
