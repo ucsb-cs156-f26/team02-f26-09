@@ -1,6 +1,7 @@
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { toDateTimeLocal, toUtcIsoString } from "main/utils/articleDateUtils";
 
 function ArticlesForm({
   initialContents,
@@ -12,10 +13,19 @@ function ArticlesForm({
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({ defaultValues: initialContents || {} });
+  } = useForm({
+    defaultValues: initialContents
+      ? {
+          ...initialContents,
+          dateAdded: toDateTimeLocal(initialContents.dateAdded),
+        }
+      : {},
+  });
   // Stryker restore all
 
   const navigate = useNavigate();
+
+  const testIdPrefix = "ArticlesForm";
 
   // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
   // Note that even this complex regex may still need some tweaks
@@ -23,20 +33,23 @@ function ArticlesForm({
   // Stryker disable Regex
   const isodate_regex =
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+  const url_regex = /^https?:\/\/\S+$/i;
+  const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   // Stryker restore Regex
 
-  // Stryker disable next-line all
-  const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+  const onSubmit = (data) => {
+    submitAction({ ...data, dateAdded: toUtcIsoString(data.dateAdded) });
+  };
 
   return (
-    <Form onSubmit={handleSubmit(submitAction)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Row>
         {initialContents && (
           <Col>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="id">Id</Form.Label>
               <Form.Control
-                data-testid="ArticlsForm-id"
+                data-testid={testIdPrefix + "-id"}
                 id="id"
                 type="text"
                 {...register("id")}
@@ -51,12 +64,16 @@ function ArticlesForm({
           <Form.Group className="mb-3">
             <Form.Label htmlFor="title">Title</Form.Label>
             <Form.Control
-              data-testid="ArticlesForm-title"
+              data-testid={testIdPrefix + "-title"}
               id="title"
               type="text"
               isInvalid={Boolean(errors.title)}
               {...register("title", {
-                required: true,
+                required: "Title is required.",
+                maxLength: {
+                  value: 255,
+                  message: "Title has a max length of 255 characters.",
+                },
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -64,16 +81,27 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
+
+      <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="url">URL</Form.Label>
             <Form.Control
-              data-testid="ArticlesForm-URL"
+              data-testid={testIdPrefix + "-url"}
               id="url"
               type="text"
               isInvalid={Boolean(errors.url)}
               {...register("url", {
                 required: "URL is required.",
+                maxLength: {
+                  value: 255,
+                  message: "URL has a max length of 255 characters.",
+                },
+                pattern: {
+                  value: url_regex,
+                  message: "URL must start with http:// or https://",
+                },
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -86,33 +114,18 @@ function ArticlesForm({
       <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="email">Email</Form.Label>
-            <Form.Control
-              data-testid="Articles-email"
-              id="email"
-              type="text"
-              isInvalid={Boolean(errors.email)}
-              {...register("email", {
-                required: "Email is required.",
-              })}
-            />
-            <Form.Control.Feedback type="email">
-              {errors.email?.message}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Form.Group className="mb-3">
             <Form.Label htmlFor="explanation">Explanation</Form.Label>
             <Form.Control
-              data-testid="Articles-explanation"
+              data-testid={testIdPrefix + "-explanation"}
               id="explanation"
               type="text"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
                 required: "Explanation is required.",
+                maxLength: {
+                  value: 255,
+                  message: "Explanation has a max length of 255 characters.",
+                },
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -124,13 +137,61 @@ function ArticlesForm({
 
       <Row>
         <Col>
-          <Button type="submit" data-testid="ArticlesForm-submit">
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Control
+              data-testid={testIdPrefix + "-email"}
+              id="email"
+              type="text"
+              isInvalid={Boolean(errors.email)}
+              {...register("email", {
+                required: "Email is required.",
+                maxLength: {
+                  value: 255,
+                  message: "Email has a max length of 255 characters.",
+                },
+                pattern: {
+                  value: email_regex,
+                  message: "Email must be a valid email address.",
+                },
+              })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.email?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="dateAdded">Date Added (UTC)</Form.Label>
+            <Form.Control
+              data-testid={testIdPrefix + "-dateAdded"}
+              id="dateAdded"
+              type="datetime-local"
+              step="1"
+              isInvalid={Boolean(errors.dateAdded)}
+              {...register("dateAdded", {
+                required: "Date Added is required.",
+                pattern: isodate_regex,
+              })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.dateAdded?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <Button type="submit" data-testid={testIdPrefix + "-submit"}>
             {buttonLabel}
           </Button>
           <Button
             variant="Secondary"
             onClick={() => navigate(-1)}
-            data-testid="Articles-cancel"
+            data-testid={testIdPrefix + "-cancel"}
           >
             Cancel
           </Button>
