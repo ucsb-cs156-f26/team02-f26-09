@@ -9,7 +9,7 @@ const articlesFixtures = {
   },
   threeArticles: [
     {
-      id: 2,
+      id: 1,
       title:
         "Auckland Marathon: Brigid Dennehy targets historic third straight win and new record",
       url: "https://www.nzherald.co.nz/sport/athletics/auckland-marathon-brigid-dennehy-targets-historic-third-straight-win-and-new-record/AA4V7FEGDVHG7DMXVUDSBAZFMQ/",
@@ -19,7 +19,7 @@ const articlesFixtures = {
       dateAdded: "2026-10-29T05:27:23Z",
     },
     {
-      id: 3,
+      id: 2,
       title:
         "Google, Amazon, Intel shares dive on disappointing earnings, AI jitters",
       url: "https://www.nzherald.co.nz/business/google-amazon-intel-shares-dive-on-disappointing-earnings-ai-jitters/JAHGW3ZBSNBWVLONUA3GLLGFLQ/",
@@ -29,7 +29,7 @@ const articlesFixtures = {
       dateAdded: "2026-10-29T05:27:23Z",
     },
     {
-      id: 4,
+      id: 3,
       title:
         "Chasing the Fox: Brisbane Broncos, Wallabies sign on as rivalries headline golf showcase",
       url: "https://www.nzherald.co.nz/sport/golf/chasing-the-fox-brisbane-broncos-wallabies-sign-on-as-a-rivalries-headline-golf-showcase/J77X5PS4M5GDTO7NZFWTRM6VLY/",
