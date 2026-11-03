@@ -85,7 +85,7 @@ public class UCSBDiningCommonsMenuItemIT {
             .diningCommonsCode("ortega")
             .station("Entree Specials")
             .build();
-
+    assertEquals(0, ucsbDiningCommonsMenuItemRepository.count());
     // act
     MvcResult response =
         mockMvc
@@ -102,5 +102,10 @@ public class UCSBDiningCommonsMenuItemIT {
     String expectedJson = mapper.writeValueAsString(ucsbDiningCommonsMenuItem1);
     String responseString = response.getResponse().getContentAsString();
     assertEquals(expectedJson, responseString);
+    assertEquals(1, ucsbDiningCommonsMenuItemRepository.count());
+    UCSBDiningCommonsMenuItem saved = ucsbDiningCommonsMenuItemRepository.findById(1L).get();
+    assertEquals("Baked Carbonara Pasta", saved.getName());
+    assertEquals("ortega", saved.getDiningCommonsCode());
+    assertEquals("Entree Specials", saved.getStation());
   }
 }
