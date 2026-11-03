@@ -5,7 +5,7 @@ import { Navigate } from "react-router";
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function ArticlesEditPage ({ storybook = false }) {
+export default function ArticlesEditPage({ storybook = false }) {
   let { id } = useParams();
 
   const {
@@ -36,7 +36,7 @@ export default function ArticlesEditPage ({ storybook = false }) {
       url: article.url,
       email: article.email,
       explanation: article.explanation,
-      dateAdded: article.dateAdded
+      dateAdded: article.dateAdded,
     },
   });
 

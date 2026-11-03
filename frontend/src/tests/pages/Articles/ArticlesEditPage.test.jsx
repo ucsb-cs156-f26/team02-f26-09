@@ -70,15 +70,13 @@ describe("ArticlesEditPage tests", () => {
 
       await screen.findByText(/Welcome/);
       await screen.findByText("Edit Article");
-      expect(
-        screen.queryByTestId("ArticlesForm-id"),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId("ArticlesForm-id")).not.toBeInTheDocument();
       restoreConsole();
     });
   });
 
   describe("tests where backend is working normally", () => {
-    const testId = "ArticlesForm"
+    const testId = "ArticlesForm";
     beforeEach(() => {
       axiosMock = new AxiosMockAdapter(axios);
       axiosMock.reset();
@@ -95,7 +93,7 @@ describe("ArticlesEditPage tests", () => {
         url: "https://www.nzherald.co.nz/lifestyle/baked-beans/",
         email: "cgaucho@ucsb.edu",
         explanation: "What makes a healthy can of baked beans?",
-        dateAdded: "2026-10-29T10:30Z"
+        dateAdded: "2026-10-29T10:30Z",
       });
       axiosMock.onPut("/api/articles").reply(200, {
         id: 1,
@@ -103,7 +101,7 @@ describe("ArticlesEditPage tests", () => {
         url: "https://www.nzherald.co.nz/lifestyle/baked-beans/",
         email: "cgaucho@ucsb.edu",
         explanation: "What makes a healthy can of baked beans?",
-        dateAdded: "2026-10-29T10:30Z"
+        dateAdded: "2026-10-29T10:30Z",
       });
     });
 
@@ -125,9 +123,7 @@ describe("ArticlesEditPage tests", () => {
       );
       await screen.findByText(/Welcome/);
       await screen.findByTestId(`${testId}-id`);
-      expect(
-        screen.getByTestId(`${testId}-id`),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId(`${testId}-id`)).toBeInTheDocument();
     });
 
     test("Is populated with the data provided", async () => {
@@ -148,14 +144,17 @@ describe("ArticlesEditPage tests", () => {
       const explanationField = screen.getByTestId(`${testId}-explanation`);
       const dateAddedField = screen.getByTestId(`${testId}-dateAdded`);
 
-
       const submitButton = screen.getByTestId(`${testId}-submit`);
 
       expect(idField).toHaveValue("1");
       expect(titleField).toHaveValue("Are baked beans a healthy meal?");
-      expect(urlField).toHaveValue("https://www.nzherald.co.nz/lifestyle/baked-beans/");
+      expect(urlField).toHaveValue(
+        "https://www.nzherald.co.nz/lifestyle/baked-beans/",
+      );
       expect(emailField).toHaveValue("cgaucho@ucsb.edu");
-      expect(explanationField).toHaveValue("What makes a healthy can of baked beans?");
+      expect(explanationField).toHaveValue(
+        "What makes a healthy can of baked beans?",
+      );
       expect(dateAddedField).toHaveValue("2026-10-29T10:30");
 
       expect(submitButton).toBeInTheDocument();
@@ -179,14 +178,17 @@ describe("ArticlesEditPage tests", () => {
       const explanationField = screen.getByTestId(`${testId}-explanation`);
       const dateAddedField = screen.getByTestId(`${testId}-dateAdded`);
 
-
       const submitButton = screen.getByTestId(`${testId}-submit`);
 
       expect(idField).toHaveValue("1");
       expect(titleField).toHaveValue("Are baked beans a healthy meal?");
-      expect(urlField).toHaveValue("https://www.nzherald.co.nz/lifestyle/baked-beans/");
+      expect(urlField).toHaveValue(
+        "https://www.nzherald.co.nz/lifestyle/baked-beans/",
+      );
       expect(emailField).toHaveValue("cgaucho@ucsb.edu");
-      expect(explanationField).toHaveValue("What makes a healthy can of baked beans?");
+      expect(explanationField).toHaveValue(
+        "What makes a healthy can of baked beans?",
+      );
       expect(dateAddedField).toHaveValue("2026-10-29T10:30");
 
       expect(submitButton).toBeInTheDocument();
@@ -223,7 +225,7 @@ describe("ArticlesEditPage tests", () => {
           url: "https://www.nzherald.co.nz/lifestyle/baked-beans/",
           email: "cgaucho@ucsb.edu",
           explanation: "What makes a healthy can of baked beans?",
-          dateAdded: "2026-10-29T10:30:00Z"
+          dateAdded: "2026-10-29T10:30:00Z",
         }),
       ); // posted object
     });
