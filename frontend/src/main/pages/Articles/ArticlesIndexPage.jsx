@@ -40,12 +40,6 @@ export default function ArticlesIndexPage() {
         {createButton()}
         <h1>Articles</h1>
         <ArticlesTable articles={articles} currentUser={currentUser} />
-        <p>
-          <a href="/articles/create">Create</a>
-        </p>
-        <p>
-          <a href="/articles/edit/1">Edit</a>
-        </p>
       </div>
     </BasicLayout>
   );
