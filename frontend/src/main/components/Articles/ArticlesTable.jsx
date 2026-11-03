@@ -25,7 +25,6 @@ export default function ArticlesTable({ articles, currentUser }) {
   );
   // Stryker restore all
 
-  // Stryker disable next-line all : TODO try to make a good test for this
   const deleteCallback = async (cell) => {
     deleteMutation.mutate(cell);
   };
