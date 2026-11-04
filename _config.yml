@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team02-f26-09
 owner: ucsb-cs156-f26
 repo_name: team02-f26-09
-pull_requests: [{"author":{"id":"U_kgDOC5a68A","is_bot":false,"login":"amayabratcher","name":"Amaya Bratcher"},"headRefName":"menuitemreview-integration-tests","number":121,"title":"Add integration tests for MenuItemReview","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/121"}]
+pull_requests: [{"author":{"id":"U_kgDOCxQ66g","is_bot":false,"login":"avash124","name":""},"headRefName":"end_2_end_tests_for_helprequest","number":122,"title":"End 2 end tests for helprequest","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/122"},{"author":{"id":"U_kgDOC5a68A","is_bot":false,"login":"amayabratcher","name":"Amaya Bratcher"},"headRefName":"menuitemreview-integration-tests","number":121,"title":"Add integration tests for MenuItemReview","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/121"}]
