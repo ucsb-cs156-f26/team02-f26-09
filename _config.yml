@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f26/team02-f26-09
 owner: ucsb-cs156-f26
 repo_name: team02-f26-09
-pull_requests: [{"author":{"id":"U_kgDOC5a68A","is_bot":false,"login":"amayabratcher","name":"Amaya Bratcher"},"headRefName":"menuitemreview-e2e-tests","number":123,"title":"Add end to end tests for MenuItemReview","url":"https://github.com/ucsb-cs156-f26/team02-f26-09/pull/123"}]
+pull_requests: []
